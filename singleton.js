@@ -1,9 +1,9 @@
 class Singleton {
     constructor() {
-        if(Singleton.instance){
-            return Singleton.instance;
+        if(!Singleton.instance){
+            Singleton.instance = this;
         }
-        this.instance = this;
+        return Singleton.instance;
     }
 
     setName(name){
