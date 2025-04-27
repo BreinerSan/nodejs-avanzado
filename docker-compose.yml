@@ -1,8 +1,6 @@
-version: '3.9'
-
 services:
   app:
     build: .
     volumes:
       - .:/app
-    command: node index.js
+    command: node middleware/index.js
