@@ -1,0 +1,4 @@
+¿Cómo realizar paso a paso el debugging usando Node inspector?
+Node inspector es una de las herramientas más prácticas de debugging. Permite parar la ejecución usando la palabra clave debugger o mediante breakpoints definidos manualmente. Puedes iniciar tu script con el comando:
+
+node --inspect-brk index.js
