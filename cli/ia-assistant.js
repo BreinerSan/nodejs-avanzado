@@ -7,9 +7,10 @@ import ora from 'ora';
 import { GoogleGenAI } from '@google/genai';
 
 const args = minimist(process.argv.slice(2), {
-    string: ['name'],
+    string: ['name', 'key'],
     default: {
-        name: 'John Doe'
+        name: 'John Doe', 
+        key: ''
     },
     alias: {
         n: 'name'
@@ -18,8 +19,13 @@ const args = minimist(process.argv.slice(2), {
 
 console.log(`${blue('Hello')} ${green(args.name)}!`);
 
+if(!args.key || args.key === ''){
+    console.log(red('Error: API key is not defined'));
+    process.exit(1);
+}
+
 // Definimos el model y system prompot
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyAdI6HW3-g8P7kzR-krOASh_AI_1R0U3bE';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY || args.key;
 
 if (!GEMINI_API_KEY) {
     console.error(red('Error: Gemini API key is not defined'));
